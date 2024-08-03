@@ -1,3 +1,6 @@
+
+import javax.swing.ImageIcon;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -15,6 +18,11 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        // Cargar el ícono
+        ImageIcon icono = new ImageIcon(getClass().getResource("tree.png"));
+        // Establecer el ícono en el JFrame
+        setIconImage(icono.getImage());
     }
 
     /**
@@ -39,35 +47,35 @@ public class Menu extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTitulo.setForeground(new java.awt.Color(0, 153, 153));
+        lblTitulo.setForeground(new java.awt.Color(0, 102, 204));
         lblTitulo.setText("Gestión de Árbol Binario de Búsqueda");
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 255));
+        jButton1.setBackground(new java.awt.Color(0, 102, 204));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Insertar Nodo");
 
-        jButton2.setBackground(new java.awt.Color(0, 153, 153));
+        jButton2.setBackground(new java.awt.Color(0, 102, 204));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Eliminar Nodo");
 
-        jButton3.setBackground(new java.awt.Color(0, 153, 153));
+        jButton3.setBackground(new java.awt.Color(0, 102, 204));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Busqueda de Nodo");
+        jButton3.setText("Buscar Nodo");
 
-        jButton4.setBackground(new java.awt.Color(0, 153, 153));
+        jButton4.setBackground(new java.awt.Color(0, 102, 204));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Recorrer Árbol Binario");
 
-        jButton5.setBackground(new java.awt.Color(0, 153, 153));
+        jButton5.setBackground(new java.awt.Color(0, 102, 204));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Graficar Árbol Binario");
 
-        jButton6.setBackground(new java.awt.Color(0, 153, 153));
+        jButton6.setBackground(new java.awt.Color(0, 102, 204));
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Salir");
