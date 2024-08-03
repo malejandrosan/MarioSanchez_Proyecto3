@@ -7,7 +7,7 @@
  *
  * @author MARIO
  */
-public class Arbol {
+public class ArbolBinario {
     
     // Clase interna del nodo
     public static class Nodo {
@@ -18,9 +18,9 @@ public class Arbol {
         
         // Buen recurso https://parzibyte.me/blog/2020/05/08/arbol-binario-java/
         public Nodo(Impresora impresora){
+            this.dato = impresora;
             this.derecha = null;
             this.izquierda = null;
-            this.dato = impresora;
         }
 
         public Impresora getDato() {
