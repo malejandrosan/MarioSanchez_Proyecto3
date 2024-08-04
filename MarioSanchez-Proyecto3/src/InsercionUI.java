@@ -8,7 +8,7 @@
  * @author MARIO
  */
 public class InsercionUI extends javax.swing.JFrame {
-
+    
     public InsercionUI() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -66,6 +66,10 @@ public class InsercionUI extends javax.swing.JFrame {
             return true;
         }
         return false;
+    }
+    
+    public void agregarValores(){
+        
     }
     
     // Limpiar campos de texto
