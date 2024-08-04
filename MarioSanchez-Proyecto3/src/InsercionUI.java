@@ -7,14 +7,73 @@
  *
  * @author MARIO
  */
-public class Registro extends javax.swing.JFrame {
+public class InsercionUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Insercion
-     */
-    public Registro() {
+    public InsercionUI() {
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+
+    // Obtener ID
+    public int getId() {
+        try {
+            int id = Integer.parseInt(txtId.getText());
+            return id;
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+    }
+
+    // Obtener Marca
+    public String getMarca() {
+        String regex = "^[a-zA-Z]+$";
+        String marca = txtMarca.getText();
+        if (!marca.isBlank() && marca.matches(regex)) {
+            return marca;
+        }
+        return null;
+    }
+
+    // Obtener Tipo
+    public String getTipo() {
+        String tipo = String.valueOf(cmbTipo.getSelectedItem());
+        if (!tipo.isBlank()) {
+            return tipo;
+        }
+        return null;
+    }
+
+    // Obtener Peso
+    public float getPeso() {
+        try {
+            float peso = Float.valueOf(txtPeso.getText());
+            if (peso > 0) {
+                return peso;
+            } else {
+                return Float.NaN;
+            }
+        } catch (NumberFormatException e) {
+            return Float.NaN;
+        }
+    }
+
+    // Validar los datos ingresados
+    public boolean sonDatosValidos() {
+        if (getId() != -1
+                && getMarca() != null
+                && getTipo() != null
+                && !Float.isNaN(getPeso())) {
+            return true;
+        }
+        return false;
+    }
+    
+    // Limpiar campos de texto
+    public void limpiar(){
+        txtId.setText("");
+        txtMarca.setText("");
+        cmbTipo.setSelectedIndex(0);
+        txtPeso.setText("");
     }
 
     /**
@@ -45,9 +104,19 @@ public class Registro extends javax.swing.JFrame {
 
         btnAtras.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAtras.setText("Atrás");
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtrasActionPerformed(evt);
+            }
+        });
 
         btnInsertar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnInsertar.setText("Insertar");
+        btnInsertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertarActionPerformed(evt);
+            }
+        });
 
         lblId.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblId.setText("ID:");
@@ -122,6 +191,24 @@ public class Registro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        // TODO add your handling code here:
+        Menu menu = new Menu();
+        this.setVisible(false);
+        menu.setVisible(true);
+    }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
+        // TODO add your handling code here:
+        if (sonDatosValidos()){
+            //insertar
+            limpiar();
+        }
+        else{
+            
+        }
+    }//GEN-LAST:event_btnInsertarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -139,21 +226,20 @@ public class Registro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsercionUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsercionUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsercionUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsercionUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Registro().setVisible(true);
+                new InsercionUI().setVisible(true);
             }
         });
     }
