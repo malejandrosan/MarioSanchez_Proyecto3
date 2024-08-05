@@ -9,38 +9,25 @@
  */
 public class ArbolBinario {
     
-    // Clase interna del nodo
-    public static class Nodo {
+    public Nodo raiz;
+    
+    public ArbolBinario(){
+        raiz = null;
+    }
+    
+    public boolean estaArbolVacio(){
+        return raiz == null;
+    }
+    
+    public void insertarNodo(Impresora dato){
+        Nodo nuevo = new Nodo(dato);
         
-        private Impresora dato;
-        private Nodo derecha;
-        private Nodo izquierda;
+        if (estaArbolVacio()){
+            raiz = nuevo;
+        }
+
         
-        // Buen recurso https://parzibyte.me/blog/2020/05/08/arbol-binario-java/
-        public Nodo(Impresora impresora){
-            this.dato = impresora;
-            this.derecha = null;
-            this.izquierda = null;
-        }
-
-        public Impresora getDato() {
-            return dato;
-        }
-
-        public Nodo getDerecha() {
-            return derecha;
-        }
-
-        public Nodo getIzquierda() {
-            return izquierda;
-        }  
-    } // Fin de clase interna Nodo
-    
-    
-    
-    
-    
-    
+    }
     
     
     

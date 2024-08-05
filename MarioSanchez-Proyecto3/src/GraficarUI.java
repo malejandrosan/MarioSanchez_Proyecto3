@@ -1,3 +1,8 @@
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -17,6 +22,20 @@ public class GraficarUI extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g); // Asegúrate de llamar primero al método paint de la superclase
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(Color.RED); // Establecer el color del dibujo
+        g2d.fillRect(50, 50, 100, 100); // Dibujar un cuadrado en (x, y) con un tamaño de 100x100
+        g2d.setColor(Color.MAGENTA); // Establecer el color del dibujo
+        g2d.fillOval(200, 200, 100, 100);
+        g2d.setColor(Color.cyan); // Establecer el color del dibujo
+        g2d.drawLine(250, 250,100, 100);
+        
+    }
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
